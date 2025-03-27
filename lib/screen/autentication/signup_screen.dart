@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'signup_screen.dart';
-import 'forgot_password_screen.dart';
+import 'login_screen.dart';
 
-import 'package:schoolproject/screen/main_screens/home_screen.dart';
-
-class LoginScreen extends StatelessWidget {
+class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
-        appBar: AppBar(
+      appBar: AppBar(
         title: Text("Login"),
         leading: IconButton(
           icon: Icon(Icons.arrow_back), // Back arrow icon
@@ -26,12 +24,16 @@ class LoginScreen extends StatelessWidget {
             children: [
               SizedBox(height: 80.h),
               Text(
-                "Fluttef",
+                "Flutup",
                 style: TextStyle(fontSize: 30.sp, fontWeight: FontWeight.bold, color: Colors.red),
               ),
               SizedBox(height: 30.h),
-              Text("Log-in", style: TextStyle(fontSize: 26.sp, fontWeight: FontWeight.bold)),
+              Text("Sign-up", style: TextStyle(fontSize: 26.sp, fontWeight: FontWeight.bold)),
               SizedBox(height: 20.h),
+              TextField(
+                decoration: InputDecoration(labelText: "Full Name"),
+              ),
+              SizedBox(height: 15.h),
               TextField(
                 decoration: InputDecoration(labelText: "Email"),
               ),
@@ -40,31 +42,21 @@ class LoginScreen extends StatelessWidget {
                 obscureText: true,
                 decoration: InputDecoration(labelText: "Password"),
               ),
-              SizedBox(height: 10.h),
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => ForgotPasswordScreen()));
-                  },
-                  child: Text("Forgot Password?"),
-                ),
-              ),
               SizedBox(height: 20.h),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (_) => HomePage()));},
-                  child: Text("Log-in"),
+                  onPressed: () {},
+                  child: Text("Sign-up"),
                 ),
               ),
               SizedBox(height: 20.h),
               Center(
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => SignupScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => LoginScreen()));
                   },
-                  child: Text("Don't have an account? Sign up", style: TextStyle(color: Color.fromARGB(255, 148, 41, 33))),
+                  child: Text("Already have an account? Log-in", style: TextStyle(color: Colors.red)),
                 ),
               ),
             ],
