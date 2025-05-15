@@ -8,7 +8,7 @@ import 'package:schoolproject/screen/main_screens/voice_transcription_screen.dar
 import 'package:schoolproject/screen/main_screens/ocr_screen.dart';
 import 'package:schoolproject/screen/main_screens/chat_screen.dart';
 import 'package:schoolproject/screen/main_screens/profile_screen.dart';
-
+import 'package:schoolproject/screen/startup_screens/startup.dart';
 void main() {
   runApp(ProviderScope(child: MyApp()));
 }
@@ -37,9 +37,12 @@ class MyApp extends StatelessWidget {
 final GoRouter appRouter = GoRouter(
   initialLocation: '/',
   routes: [
-    GoRoute(path: '/', builder: (context, state) => BottomNavScreen()),
+    GoRoute(path: '/', builder: (context, state) => HomeScreen1()),
+    GoRoute(path: '/home', builder: (context, state) => BottomNavScreen()),
     GoRoute(path: '/login', builder: (context, state) => LoginScreen()),
     GoRoute(path: '/home', builder: (context, state) => HomePage()),
+    GoRoute(path: '/transcrip', builder: (context, state) => CombinedTranscriptionScreen()),
+
   ],
 );
 
@@ -52,7 +55,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
-    VoiceTranscriptionScreen(),
+    CombinedTranscriptionScreen(),
     OCRScreen(),
     HomePage(),
     ChatScreen(),
@@ -72,7 +75,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
       bottomNavigationBar: Container(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: BoxDecoration(
-          color: Colors.black.withOpacity(0.2), // Transparent background
+          color: Colors.black.withOpacity(0.8), // Transparent background
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30),
             topRight: Radius.circular(30),
@@ -85,11 +88,11 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _buildNavItem(Icons.calculate, 0),
+                _buildNavItem(Icons.calculate, 0),      
                 _buildNavItem(Icons.pie_chart, 1),
                 SizedBox(width: 60), // Space for floating button
                 _buildNavItem(Icons.chat, 3),
-                _buildNavItem(Icons.person, 4),
+                _buildNavItem(Icons.settings, 4),
               ],
             ),
             Positioned(
@@ -101,11 +104,11 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     gradient: LinearGradient(
-                      colors: [Colors.blueAccent, Colors.purpleAccent],
+                      colors: [Color.fromARGB(255, 32, 101, 219), Colors.purpleAccent],
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black26,
+                        color: Color.fromARGB(66, 206, 106, 106),
                         blurRadius: 10,
                         spreadRadius: 2,
                       ),
@@ -113,7 +116,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
                   ),
                   child: Icon(Icons.home,
                       size: 35,
-                      color: _selectedIndex == 2 ? Colors.white : Colors.white54),
+                      color: _selectedIndex == 2 ? Color.fromARGB(255, 185, 180, 180) : Colors.white54),
                 ),
               ),
             ),
@@ -138,7 +141,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black26,
+                    color: Color.fromARGB(255, 102, 65, 65),
                     blurRadius: 10,
                     spreadRadius: 2,
                   ),

@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 
-
+ 
 
 
 class HomeScreen1 extends ConsumerWidget {
@@ -11,8 +11,8 @@ class HomeScreen1 extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Campus Resource Sharing'),
-        backgroundColor: Colors.red.shade700,
+        title: Text('Campus Resource Sharing', style: TextStyle(color: Colors.white),),
+        backgroundColor: Color.fromARGB(255, 47, 113, 211),
       ),
       body: Center(
         child: Column(
@@ -25,7 +25,7 @@ class HomeScreen1 extends ConsumerWidget {
               onPressed: () {
                 context.go('/login'); // Use GoRouter to navigate
               },
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.red.shade900),
+              style: ElevatedButton.styleFrom(backgroundColor: Color.fromARGB(255, 47, 113, 211)),
               child: Text('Get Started', style: TextStyle(color: Colors.white),),
             ),
           ],

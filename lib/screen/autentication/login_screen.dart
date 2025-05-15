@@ -3,8 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'signup_screen.dart';
 import 'forgot_password_screen.dart';
 
-import 'package:schoolproject/screen/main_screens/home_screen.dart';
-
+import 'package:go_router/go_router.dart';
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -20,18 +19,23 @@ class LoginScreen extends StatelessWidget {
         ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          padding: EdgeInsets.symmetric(horizontal: 20.w,vertical: 70.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            
             children: [
-              SizedBox(height: 80.h),
-              Text(
-                "Fluttef",
+              Center(
+                child: 
+                 Text(
+                "WELCOME BACK",
                 style: TextStyle(fontSize: 30.sp, fontWeight: FontWeight.bold, color: Colors.red),
               ),
-              SizedBox(height: 30.h),
-              Text("Log-in", style: TextStyle(fontSize: 26.sp, fontWeight: FontWeight.bold)),
-              SizedBox(height: 20.h),
+
+                
+             
+             
+              ),
+               
               TextField(
                 decoration: InputDecoration(labelText: "Email"),
               ),
@@ -54,7 +58,7 @@ class LoginScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (_) => HomePage()));},
+                  onPressed: () {  context.go('/home');},// Use GoRouter to navigate},
                   child: Text("Log-in"),
                 ),
               ),
